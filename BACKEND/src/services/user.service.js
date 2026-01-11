@@ -18,8 +18,8 @@ export const updateProfileService = async (userId, data) => {
 
     const updateData = {};
     for (const field of allowedFileds) {
-        if (data(field) !== undefined) {
-            updateData(field) = data(field);
+        if (data[field] !== undefined) {
+            updateData[field] = data[field];
         }
 
     }

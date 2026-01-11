@@ -4,7 +4,7 @@ import { generateOtp } from "../utils/generateOtp.js";
 import { AppError } from "../utils/appError.js";
 
 export const sendOtpService = async (phone) => {
-    const otp = generateOtp();
+    const otp = await generateOtp();
     await OTP.deleteMany({ phone });
     await OTP.create({
         phone,
