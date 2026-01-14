@@ -11,9 +11,16 @@ export const sendOtp = async (req, res, next) => {
 
 export const verifyOtp = async (req, res, next) => {
   try {
-    await verifyOtpService(req.body.phone, req.body.otp);
-    res.status(200).json({ success: true });
+    const { phone, otp } = req.body;
+
+    const token = await verifyOtpService(phone, otp);
+
+    res.status(200).json({
+      success: true,
+      token
+    });
   } catch (e) {
     next(e);
   }
 };
+

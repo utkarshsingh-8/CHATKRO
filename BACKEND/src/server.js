@@ -2,12 +2,11 @@ import app from "./app.js";
 import connectDB from "./config/db.js";
 import { env } from './config/env.js';
 
-connectDB();
 const PORT = env.port || 4000;
 
 (async () => {
     try {
-        // await connectDB();
+        await connectDB();
 
         app.listen(PORT, () => {
             console.log(`🚀 Server is running properly on PORT= ${PORT}`);
@@ -17,4 +16,3 @@ const PORT = env.port || 4000;
         process.exit(1);
     }
 })();
-
