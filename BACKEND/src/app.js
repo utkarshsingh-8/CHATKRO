@@ -3,6 +3,8 @@ import { errorHandler } from './middlewares/error.middleware.js';
 import userRoutes from "./routes/user.routes.js";
 import otpRoutes from "./routes/otp.routes.js";
 import authRoutes from "./routes/auth.routes.js";
+import conversationRoutes from "./routes/conversation.routes.js";
+import messageRoutes from "./routes/message.routes.js";
 import { env } from './config/env.js';
 
 const app = express();
@@ -19,6 +21,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/users", userRoutes);
 app.use("/api/otp", otpRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/conversations", conversationRoutes);
+app.use("/api/messages", messageRoutes);
 
 app.get('/health', (req, res) => {
     res.status(200).json({

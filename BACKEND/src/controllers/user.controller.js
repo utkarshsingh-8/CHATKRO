@@ -1,3 +1,5 @@
+import { getMeService, updateProfileService } from "../services/user.service.js";
+
 export const createUser = async (req, res, next) => {
   try {
     const user = await createUserService(req.body.phone);
